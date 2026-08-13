@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تهيئة الأناني | غرين لوك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --emerald-glow: #00ff66;
+            --dark-green: #002200;
+            --neon-green-dim: rgba(57, 255, 20, 0.3);
+            --dark-bg: #020502;
+            --panel-bg: rgba(2, 10, 5, 0.9);
+            --pure-white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--dark-bg);
+            color: var(--pure-white);
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* خلفية متحركة */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--neon-green-dim) 1px, transparent 1px),
+                linear-gradient(90deg, var(--neon-green-dim) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridPulse 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.4; }
+        }
+
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(57, 255, 20, 0.03) 2px,
+                rgba(57, 255, 20, 0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* شريط التنقل */
+        .system-navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 5%;
+            border-bottom: 2px solid var(--neon-green);
+            position: relative;
+            z-index: 10;
+            background: rgba(0,0,0,0.9);
+            box-shadow: 0 4px 20px var(--dark-green);
+        }
+
+        .nav-brand {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 900;
+            color: var(--neon-green);
+            text-shadow: 0 0 15px var(--neon-green-dim);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        /* تخطيط الشبكة */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .text-side {
+            text-align: right;
+            color: var(--emerald-glow);
+        }
+
+        .image-side {
+            text-align: center;
+        }
+
+        .system-img {
+            width: 80%;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 30px var(--dark-green), inset 0 0 20px var(--neon-green-dim);
+            filter: drop-shadow(0 0 10px var(--neon-green-dim));
+        }
+
+        /* أنماط النصوص */
+        h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--pure-white);
+            text-shadow: 2px 2px 10px var(--neon-green-dim);
+            font-weight: 900;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: var(--pure-white);
+            line-height: 2;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .highlight {
+            color: var(--neon-green);
+            font-weight: 700;
+        }
+
+        /* صندوق الاقتباسات المتغيرة */
+        .quote-container {
+            background: var(--panel-bg);
+            border: 1px solid rgba(57, 255, 20, 0.4);
+            padding: 20px 30px 20px 25px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px var(--dark-green);
+        }
+
+        .quote-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-green);
+        }
+
+        .quote-label {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.75rem;
+            color: var(--neon-green);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .quote-text {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.2rem;
+            color: var(--pure-white);
+            line-height: 1.8;
+            min-height: 60px;
+            font-weight: 600;
+            transition: opacity 0.5s ease;
+        }
+
+        .quote-text.fade-out {
+            opacity: 0;
+        }
+
+        /* شريط التحميل */
+        .loading-section {
+            margin-top: 30px;
+            padding: 15px 0;
+        }
+
+        .loading-label {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9rem;
+            color: var(--neon-green);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .loading-bar-outer {
+            width: 100%;
+            height: 4px;
+            background: rgba(57, 255, 20, 0.1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .loading-bar-inner {
+            height: 100%;
+            width: 0%;
+            background: var(--pure-white);
+            box-shadow: 0 0 20px var(--neon-green), 0 0 10px var(--pure-white);
+            transition: width 0.1s linear;
+            /* الشريط يمتد من اليمين في وضع RTL */
+            margin-right: 0;
+        }
+
+        .loading-percent {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            color: var(--pure-white);
+            text-shadow: 0 0 5px var(--neon-green);
+            font-weight: 700;
+        }
+
+        /* الزر الرئيسي */
+        .manual-btn {
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: rgba(0, 20, 0, 0.5);
+            border: 1px solid var(--neon-green);
+            color: var(--pure-white);
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px var(--dark-green);
+        }
+
+        .manual-btn:hover {
+            background: var(--neon-green);
+            color: var(--dark-bg);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.6);
+            transform: translateY(-2px);
+            border-color: var(--pure-white);
+        }
+
+        /* الاستجابة للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+            }
+            .image-side { order: 1; }
+            .text-side { order: 2; text-align: center; }
+            .system-img { width: 100%; }
+            .quote-container { text-align: right; }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+    <base target="_blank">
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+
+    <nav class="system-navbar">
+        <div class="nav-brand"><i class="fa-solid fa-lock"></i> غرين لوك</div>
+        <div class="nav-links">
+            <a href="index.html" style="color:var(--pure-white); text-decoration:none; font-family:'Cairo',sans-serif; font-size:0.9rem; font-weight:600;">دخول الملعب</a>
+        </div>
+    </nav>
+
+    <div class="main-layout">
+        <!-- يمين: الصورة -->
+        <div class="image-side">
+            <img src="10.png" alt="نواة نظام الأناني" class="system-img" onerror="this.style.display='none'">
+        </div>
+
+        <!-- يسار: النص -->
+        <div class="text-side">
+            <h1>بروتوكول الأناني</h1>
+
+            <p class="description">
+                <span class="highlight">⚠️ [تحذير: العقلانية مُلقاة جانباً]</span><br><br>
+                "مرحباً بك في البوتقة. أنت لست هنا لتتصرف بأدب أو تمرر الكرة. أنت هنا لابتلاع المنافسة والوقوف وحدك على القمة المطلقة."<br><br>
+                هذا هو مرفق غرين لوك. تخلص من عقلك السليم. الوحش الوحيد في الملعب يجب أن تكون أنت. اعثر على معادلتك. أوجد تفاعلاً كيميائياً. <span class="highlight">أيقظ أناك.</span>
+            </p>
+
+            <!-- اقتباسات نظام الأنا المتغيرة -->
+            <div class="quote-container">
+                <div class="quote-label">[ سجل نظام الأناني]</div>
+                <div class="quote-text" id="systemQuote">
+                    جارٍ تهيئة بيانات المهاجم...
+                </div>
+            </div>
+
+            <!-- شريط التحميل -->
+            <div class="loading-section">
+                <div class="loading-label">
+                    <span>جارٍ إيقاظ حالة التدفق...</span>
+                    <span class="loading-percent" id="loadPercent">0%</span>
+                </div>
+                <div class="loading-bar-outer">
+                    <div class="loading-bar-inner" id="loadBar"></div>
+                </div>
+            </div>
+
+            <button class="manual-btn" onclick="forceRedirect()">ادخل الملعب</button>
+        </div>
+    </div>
+
+<script>
+// ==========================================
+// اقتباسات النظام المتغيرة (كل 2.5 ثانية)
+// ==========================================
+const systemQuotes = [
+    "جارٍ تهيئة بيانات المهاجم...",
+    "جارٍ فحص الوعي المكاني...",
+    "جارٍ عزل الأفكار العقلانية...",
+    "جارٍ حساب معدل الابتلاع...",
+    "جارٍ تجميع قطع الأحجية...",
+    "جارٍ تحليل مسار التسديد المباشر...",
+    "جارٍ فتح الرؤية الميتا...",
+    "اكتمل بروتوكول الأناني. جاهز للسيطرة."
+];
+
+let quoteIndex = 0;
+const quoteEl = document.getElementById('systemQuote');
+
+function rotateQuotes() {
+    quoteEl.classList.add('fade-out');
+    setTimeout(() => {
+        quoteIndex = (quoteIndex + 1) % systemQuotes.length;
+        quoteEl.textContent = systemQuotes[quoteIndex];
+        quoteEl.classList.remove('fade-out');
+    }, 500);
+}
+
+const quoteInterval = setInterval(rotateQuotes, 2500);
+
+// ==========================================
+// شريط التحميل متزامن مع وقت الإعادة
+// ==========================================
+const REDIRECT_TIME = 50000; // 50 ثانية
+const loadBar = document.getElementById('loadBar');
+const loadPercent = document.getElementById('loadPercent');
+let progress = 0;
+const updateInterval = 50;
+const increment = 100 / (REDIRECT_TIME / updateInterval);
+
+const loadingInterval = setInterval(() => {
+    progress += increment;
+    if (progress >= 100) {
+        progress = 100;
+        clearInterval(loadingInterval);
+    }
+    loadBar.style.width = progress + '%';
+    loadPercent.textContent = Math.floor(progress) + '%';
+}, updateInterval);
+
+// ==========================================
+// إعادة التوجيه التلقائية
+// ==========================================
+const redirectTimer = setTimeout(() => {
+    clearInterval(quoteInterval);
+    window.location.href = 'football44.html';
+}, REDIRECT_TIME);
+
+// ==========================================
+// إعادة التوجيه اليدوية الفورية
+// ==========================================
+function forceRedirect() {
+    clearTimeout(redirectTimer);
+    clearInterval(quoteInterval);
+    clearInterval(loadingInterval);
+    window.location.href = 'football44.html';
+}
+</script>
+
+</body>
+</html>
