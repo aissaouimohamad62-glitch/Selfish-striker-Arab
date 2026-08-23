@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- الصفحة الرئيسية / رابط الموقع -->
+  <!-- الصفحة الرئيسية للموقع -->
   <url>
-    <loc>https://username.github.io/repository-name/</loc>
+    <loc>https://aissaouimohamad62-glitch.github.io/Selfish-striker-Arab/</loc>
     <lastmod>2026-08-23</lastmod>
     <priority>1.00</priority>
   </url>
-  <!-- صفحة التسجيل -->
+  
+  <!-- صفحة الدخول والتسجيل -->
   <url>
-    <loc>https://username.github.io/repository-name/index.html</loc>
+    <loc>https://aissaouimohamad62-glitch.github.io/Selfish-striker-Arab/index.html</loc>
     <lastmod>2026-08-23</lastmod>
     <priority>0.80</priority>
   </url>
-  <!-- صفحة النظام الرئيسية -->
+  
+  <!-- صفحة النظام الأساسي والتطوير -->
   <url>
-    <loc>https://username.github.io/repository-name/football44.html</loc>
+    <loc>https://aissaouimohamad62-glitch.github.io/Selfish-striker-Arab/football44.html</loc>
     <lastmod>2026-08-23</lastmod>
     <priority>0.80</priority>
   </url>
