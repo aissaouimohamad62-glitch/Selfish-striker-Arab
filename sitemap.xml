@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- الصفحة الرئيسية / رابط الموقع -->
+  <url>
+    <loc>https://username.github.io/repository-name/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <!-- صفحة التسجيل -->
+  <url>
+    <loc>https://username.github.io/repository-name/index.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <!-- صفحة النظام الرئيسية -->
+  <url>
+    <loc>https://username.github.io/repository-name/football44.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <priority>0.80</priority>
+  </url>
+</urlset>
