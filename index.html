@@ -9,10 +9,19 @@
     
     <!-- وصف الموقع المباشر في نتائج البحث (SEO Description) -->
     <meta name="description" content="منصة جرين لوك (GREENLOCK) المخصصة لتطوير مهارات المهاجم، متابعة المهام التكتيكية اليومية، تتبع الإحصائيات الرياضية وشجرة المهارات الهجومية.">
+    
+    <!-- الرابط المباشر لمنع التكرار (Canonical URL) -->
+    <link rel="canonical" href="https://aissaouimohamad62-glitch.github.io/Selfish-striker-Arab/">
+
+    <!-- وسوم المشاركة لشبكات التواصل الاجتماعي (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aissaouimohamad62-glitch.github.io/Selfish-striker-Arab/">
+    <meta property="og:title" content="GREENLOCK | منصة تطوير المهاجم الأناني">
+    <meta property="og:description" content="نظام المهاجم الأناني لتطوير الأداء التكتيكي والبدني واستعراض شجرة المهارات.">
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;900&family=Orbitron:wght@500;700;900&family=Teko:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     
-    <!-- سكربت التحقق المسبق لمنع تكرار التسجيل للمستخدمين المسجلين -->
+    <!-- سكربت التحقق المسبق لمنع تكرار التسجيل -->
     <script>
         (function() {
             var isRegistered = localStorage.getItem('greenlock_registered') === 'true';
@@ -21,134 +30,6 @@
             }
         })();
     </script>
-
-    <style>
-        :root {
-            --neon-green: #00cc52;
-            --neon-lime: #88cc00;
-            --emerald-glow: #00883a;
-            --dark-bg: #030d06;
-            --panel-bg: rgba(4, 20, 10, 0.88);
-            --panel-border: rgba(0, 204, 82, 0.3);
-            --border-glow: #00cc52;
-            --text-white: #e0e0e0;
-            --text-dim: #7a9e84;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cairo', 'Share Tech Mono', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-white);
-            min-height: 100vh;
-            overflow-x: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        /* ===== Background Grid & Aura ===== */
-        .bg-grid {
-            position: fixed;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(0, 204, 82, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 204, 82, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: gridPulse 4s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes gridPulse {
-            0%, 100% { opacity: 0.15; transform: scale(1); }
-            50% { opacity: 0.35; transform: scale(1.01); }
-        }
-
-        .aura-field {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0,204,82,0.06) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            animation: auraBreathing 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes auraBreathing {
-            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.4; }
-            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
-        }
-
-        .scanlines {
-            position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(0, 204, 82, 0.02) 2px,
-                rgba(0, 204, 82, 0.02) 4px
-            );
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .vignette {
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(ellipse at center, transparent 20%, rgba(2, 10, 4, 0.95) 100%);
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        .system-navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(3, 13, 6, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--neon-green);
-            box-shadow: 0 0 15px rgba(0, 204, 82, 0.15);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 6%;
-            z-index: 999;
-        }
-
-        .nav-brand {
-            font-family: 'Teko', 'Cairo', sans-serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(0, 204, 82, 0.5);
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-brand .tag {
-            background: var(--neon-green);
-            color: #000;
-            font-family: 'Orbitron', monospace;
-            font-size: 0.75rem;
-            font-weight: 900;
-            padding: 2px 8px;
-            border-radius: 2px;
-            letter-spacing: 1px;
-        }
-    </style>
 </head>
 <body>
 
